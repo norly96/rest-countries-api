@@ -1,12 +1,39 @@
+import { createContext, useEffect, useState } from "react";
+import Header from "./components/Header";
+import Home from "./components/Home";
 
-function App() {
-
-
-  return (
-    <>
-    <h1 className="text-2xl font-nunito text-black font-extrabold">Where in the world?</h1> 
-    </>
-  )
+interface ThemeContextType {
+  darkTheme: boolean;
+  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default App
+const initialTheme = document.documentElement.className.includes("dark");
+export const ThemeContext = createContext<ThemeContextType>({
+  darkTheme: false,
+  setDarkTheme: () => {},
+});
+
+function App() {
+  const [darkTheme, setDarkTheme] = useState<boolean>(initialTheme);
+
+  useEffect(() => {
+    if (darkTheme) {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    }
+  }, [darkTheme]);
+
+  return (
+    <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
+      <main className="h-screen bg-background-light dark:bg-background-dark">
+        <Header />
+        <Home />
+      </main>
+    </ThemeContext.Provider>
+  );
+}
+
+export default App;
