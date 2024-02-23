@@ -29,7 +29,7 @@ export default {
       'nunito': ['Nunito Sans'],
     },
     boxShadow: {
-      'sm': '0px -2px 4px',
+      'sm': '0px 0px 3px -1px',
       'lg' : '0 25px 50px -12px rgb(0 0 0 / 0.25)'
     },
     screens: {
