@@ -30,10 +30,12 @@ export default {
     },
     boxShadow: {
       'sm': '0px -2px 4px',
+      'lg' : '0 25px 50px -12px rgb(0 0 0 / 0.25)'
     },
     screens: {
       'xs': '375px',
       'sm': '640px',
+      'lg': '768px',
       'xl': '1440px',
     },
     extend: {},

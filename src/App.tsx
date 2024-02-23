@@ -28,7 +28,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-      <main className="h-screen bg-background-light dark:bg-background-dark">
+      <main className="h-screen font-nunito bg-background-light dark:bg-background-dark">
         <Header />
         <Home />
       </main>
