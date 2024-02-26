@@ -1,20 +1,14 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
-
-interface ThemeContextType {
-  darkTheme: boolean;
-  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { ThemeContext } from "./context/ThemeContext";
+import { CountryContext } from "./context/CountryContext";
 
 const initialTheme = document.documentElement.className.includes("dark");
-export const ThemeContext = createContext<ThemeContextType>({
-  darkTheme: false,
-  setDarkTheme: () => {},
-});
 
-function App() {
+function App():JSX.Element {
   const [darkTheme, setDarkTheme] = useState<boolean>(initialTheme);
+  const [countries, setCountries] = useState<[]>([])
 
   useEffect(() => {
     if (darkTheme) {
@@ -28,11 +22,15 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-      <main className="h-screen font-nunito bg-background-light dark:bg-background-dark">
+      <CountryContext.Provider value={{ countries, setCountries}}>
+        <main className="h-screen font-nunito">
         <Header />
         <Home />
       </main>
+      </CountryContext.Provider>
     </ThemeContext.Provider>
+      
+    
   );
 }
 

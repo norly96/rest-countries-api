@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import moonLight from "../assets/moon-light.svg";
 import moonDark from "../assets/moon-dark.svg";
-import { ThemeContext } from "../App";
+import { ThemeContext } from "../context/ThemeContext";
 
-const Header = () => {
+const Header = ():JSX.Element => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
