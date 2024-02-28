@@ -36,7 +36,7 @@ const CountryDetails = () => {
       <Link to={'/'} className="flex flex-row items-center w-28 rounded-lg mb-10 py-2 px-2 font-nunito text-sm lg:text-base text-primary-light dark:text-primary-dark bg-element-light dark:bg-element-dark shadow-sm shadow-primary-light"><span><svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mx-2 ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" strokeWidth="48" d="M244 400L100 256l144-144M120 256h292"/></svg></span>Back</Link>
       <div className="font-semibold xl:flex xl:flex-row">
         
-      <img src={country?.flags.png} alt={country?.flags.alt} className="object-fill mr-10 w-80 h-48 lg:w-[36rem] lg:h-80 xl:w-[50rem] xl:h-[30rem]"/> 
+      <img src={country?.flags.png} alt={country?.name.common} className="object-fill mr-10 w-80 h-48 lg:w-[36rem] lg:h-80 xl:w-[50rem] xl:h-[30rem]"/> 
       <div className="flex flex-col xl:justify-center">
       <h1 className="text-xl xl:text-2xl my-4 text-primary-light dark:text-primary-dark" >{country?.name.common}</h1>
         <div className="flex flex-col xl:flex-row xl:gap-5 ">
