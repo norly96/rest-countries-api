@@ -36,7 +36,7 @@ const Home  = ():JSX.Element => {
   if (loading) {
     return (
       <div className="flex justify-center mt-10">
-        <h1 className="text-xxl text-primary-light dark:text-primary-dark">Loading...</h1>
+        <h1 className="text-xl lg:text-xxl text-primary-light dark:text-primary-dark">Loading...</h1>
       </div>
     );
   }
