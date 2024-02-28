@@ -9,7 +9,7 @@ const CountryList = () => {
     <>
         {
             countries?.map( (country) => (
-                <CountryItem country={country} key={country.cca2}/>
+                <CountryItem country={country} key={country.cca3}/>
             ))
         }
     </>

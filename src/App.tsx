@@ -3,12 +3,16 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import { ThemeContext } from "./context/ThemeContext";
 import { CountryContext } from "./context/CountryContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+//import CountryList from "./components/Country/CountryList";
+import NotFound from "./components/NotFound";
+import CountryDetails from "./components/Country/CountryDetails";
 
 const initialTheme = document.documentElement.className.includes("dark");
 
-function App():JSX.Element {
+function App(): JSX.Element {
   const [darkTheme, setDarkTheme] = useState<boolean>(initialTheme);
-  const [countries, setCountries] = useState<[]>([])
+  const [countries, setCountries] = useState<[]>([]);
 
   useEffect(() => {
     if (darkTheme) {
@@ -20,17 +24,23 @@ function App():JSX.Element {
     }
   }, [darkTheme]);
 
+
   return (
     <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-      <CountryContext.Provider value={{ countries, setCountries}}>
+      <CountryContext.Provider value={{ countries, setCountries }}>
         <main className="h-screen font-nunito">
-        <Header />
-        <Home />
-      </main>
+        <BrowserRouter>
+          <Routes>   
+            <Route path="/" element={<Header />}>
+            <Route index element={<Home />}></Route>
+            <Route path=":cod" element={<CountryDetails />}></Route>
+            <Route path="*" element={<NotFound/>}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+        </main>
       </CountryContext.Provider>
     </ThemeContext.Provider>
-      
-    
   );
 }
 
