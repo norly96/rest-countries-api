@@ -9,6 +9,8 @@ export default {
       base: '1rem',
       lg: '1.125rem',
       xl: '1.5rem',
+      '2xl': '2rem',
+      xxl: '9rem',
     },
     colors: {
       'primary': {
