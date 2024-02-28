@@ -11,7 +11,7 @@ const CountryItem = ({ country }: Props):JSX.Element => {
   return (
     <div key={country.name.common} className="flex flex-col mb-10  bg-element-light dark:bg-element-dark overflow-hidden max-w-sm rounded-lg shadow-sm shadow-primary-light text-primary-light dark:text-primary-dark">
       <Link to={`${country.cca3}`}>
-      <img src={country.flags.png} alt={country.flags.alt} className="object-fill w-96 h-48 sm:w-64 sm:h-44 lg:w-96 lg:h-52 " />
+      <img src={country.flags.png} alt={country.name.common} className="object-fill w-96 h-48 sm:w-64 sm:h-44 lg:w-96 lg:h-52 " />
       <div className="ml-3 mb-9">
         <h1 className="text-lg font-extrabold mt-4 mb-2">{country.name.common}</h1>
         <h2 className="text-sm font-semibold">
